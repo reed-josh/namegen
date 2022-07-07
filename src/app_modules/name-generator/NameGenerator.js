@@ -1,0 +1,34 @@
+import Helpers from './Helpers.js'
+
+import oldnorse from './syllables/oldnorse.js'
+import english from './syllables/english.js'
+import thadden from './syllables/thadden.js'
+
+const syllablesMap = {
+  OLD_NORSE: oldnorse,
+  ENGLISH: english,
+  THADDEN: thadden
+}
+
+/**
+ * generates a fictional name from random syllables
+ *
+ * @param {object} options Configurations, like syllable_count
+ * @param {array} syllables An array of strings; single syllables
+ * @return {string} This returns a string; a combination of syllables
+ */
+export const generateName = function (options, syllType) {
+  const syllables = syllablesMap[syllType]
+  let name = ''
+  const multiSyll = options.syllable_count > 1
+  if (multiSyll) {
+    options.syllable_count = options.syllable_count - 1
+  }
+  for (let i = 0; i < options.syllable_count; i++) {
+    name += Helpers.getRandomSyllable(syllables.start)
+  }
+  if (multiSyll) {
+    name = Helpers.firstCharToUpper(name) + Helpers.getRandomSyllable(syllables.end)
+  }
+  return name
+}

@@ -1,15 +1,6 @@
 ---
 title: 'Name Generator'
 description: 'Generate names for novels, books, games and all your creative world building projects.'
-layout: 'home'
-hero:
-  name: Name Generator
-  text: Names for novelists, gamers and creatives
-  tagline: Name anything
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /about
 ---
 
 
@@ -18,23 +9,11 @@ hero:
 
 ### {{ page.description }}
 
-:tada: :100:
 
-## test
-
-
-## I like pizza
-
-<label>Testing</label>
-
-
-<span v-for="i in 3">{{ i }}</span>
-
+<NameGen />
 
 <script setup>
 import { useData } from 'vitepress'
-
+import NameGen from '/components/NameGen.vue'
 const { page } = useData()
 </script>
-
-<pre>{{ page }}</pre>
