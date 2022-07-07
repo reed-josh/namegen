@@ -8,7 +8,7 @@
         <p>
             {{ name }}
         </p>
-        </div>
+    </div>
 </template>
 
 
@@ -20,9 +20,9 @@ import SelectSylType from './SelectSylType.vue'
 const name = ref('')
 const sylType = ref('OLD_NORSE')
 
-function generate () {
+function generate() {
     console.log(sylType.value)
-    name.value = generateName({syllable_count: 2}, sylType.value)
+    name.value = generateName({ syllable_count: 2 }, sylType.value)
 }
 
 </script>

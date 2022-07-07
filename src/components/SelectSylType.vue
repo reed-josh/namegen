@@ -20,7 +20,7 @@ onMounted(() => {
     console.log('modelValue', props.modelValue)
 })
 
-function emitSelection (e) {
+function emitSelection(e) {
     emit('update:modelValue', e.target.value)
 }
 
