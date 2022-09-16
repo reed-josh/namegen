@@ -4,10 +4,10 @@
             <SelectSylType v-model="sylType" />
         </label>
         <br>
-        <a href="#" @click="generate">Generate</a>
-        <p>
+        <p class="display-name-area">
             {{ name }}
         </p>
+        <BaseButton label="Generate" @click="generate" />
     </div>
 </template>
 
@@ -15,6 +15,7 @@
 import { ref } from 'vue'
 import { generateName } from '../app_modules/name-generator/NameGenerator'
 import SelectSylType from './SelectSylType.vue'
+import BaseButton from './base/BaseButton.vue'
 
 const name = ref('')
 const sylType = ref('OLD_NORSE')
@@ -25,3 +26,10 @@ function generate () {
 }
 
 </script>
+
+<style scoped>
+.display-name-area {
+    min-height: 100px;
+    padding: 10px;
+}
+</style>
