@@ -11,18 +11,17 @@
     </div>
 </template>
 
-
 <script setup>
 import { ref } from 'vue'
-import { generateName } from '../app_modules/name-generator/NameGenerator';
+import { generateName } from '../app_modules/name-generator/NameGenerator'
 import SelectSylType from './SelectSylType.vue'
 
 const name = ref('')
 const sylType = ref('OLD_NORSE')
 
-function generate() {
-    console.log(sylType.value)
-    name.value = generateName({ syllable_count: 2 }, sylType.value)
+function generate () {
+  console.log(sylType.value)
+  name.value = generateName({ syllable_count: 2 }, sylType.value)
 }
 
 </script>
