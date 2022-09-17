@@ -4,6 +4,7 @@ import oldnorse from './syllables/oldnorse.js'
 import english from './syllables/english.js'
 import thadden from './syllables/thadden.js'
 
+/** @member {object} syllablesMap */
 const syllablesMap = {
   OLD_NORSE: oldnorse,
   ENGLISH: english,
@@ -14,8 +15,8 @@ const syllablesMap = {
  * generates a fictional name from random syllables
  *
  * @param {object} options Configurations, like syllable_count
- * @param {array} syllables An array of strings; single syllables
- * @return {string} This returns a string; a combination of syllables
+ * @param {string} syllType which syllable list to use
+ * @returns {string} This returns a string; a combination of syllables
  */
 export const generateName = function (options, syllType) {
   const syllables = syllablesMap[syllType]

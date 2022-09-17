@@ -7,19 +7,17 @@
 </template>
 
 <script setup>
-import { defineProps, onMounted } from 'vue'
 
 const emit = defineEmits(['update:modelValue'])
 
-const props = defineProps({
+defineProps({
   modelValue: String
 })
 
-onMounted(() => {
-  console.log('mounted?')
-  console.log('modelValue', props.modelValue)
-})
-
+/**
+ *
+ * @param {object} e
+ */
 function emitSelection (e) {
   emit('update:modelValue', e.target.value)
 }

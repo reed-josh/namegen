@@ -20,6 +20,10 @@ import BaseButton from './base/BaseButton.vue'
 const name = ref('')
 const sylType = ref('OLD_NORSE')
 
+/**
+ *
+ * @returns {void}
+ */
 function generate () {
   console.log(sylType.value)
   name.value = generateName({ syllable_count: 2 }, sylType.value)

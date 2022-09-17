@@ -1,16 +1,16 @@
 
 // get random integer
-function getRandomInt (max) {
+export function getRandomInt (max) {
   return Math.floor(Math.random() * Math.floor(max))
 }
 
 // make first character of a string uppercase
-function firstCharToUpper (string) {
+export function firstCharToUpper (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 // get a random syllable form an array of syllables
-function getRandomSyllable (syllables) {
+export function getRandomSyllable (syllables) {
   return syllables[getRandomInt(syllables.length)]
 }
 

@@ -5,7 +5,8 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    'standard'
+    'standard',
+    'plugin:jsdoc/recommended'
   ],
   overrides: [
   ],
@@ -14,8 +15,8 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'vue'
+    'vue',
+    'jsdoc'
   ],
-  rules: {
-  }
+  rules: { 'jsdoc/require-param-description': 0 }
 }
