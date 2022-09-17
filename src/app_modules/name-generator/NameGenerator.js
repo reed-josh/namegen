@@ -15,6 +15,16 @@ export async function getSylList (fileName) {
 }
 
 /**
+ *
+ * need to return an array of possible syl types or options for generateName function
+ *
+ * @returns {Array} array
+ */
+export async function buildSylOptions () {
+  return []
+}
+
+/**
  * generates a fictional name from random syllables
  *
  * @param {object} options Configurations, like syllable_count
