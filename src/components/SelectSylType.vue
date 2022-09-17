@@ -1,8 +1,8 @@
 <template>
     <select class="syl-select" :value="modelValue" @change="emitSelection">
-        <option value="OLD_NORSE">Old Norse</option>
-        <option value="ENGLISH">English</option>
-        <option value="THADDEN">Haddish</option>
+        <option value="oldnorse">Old Norse</option>
+        <option value="english">English</option>
+        <option value="thadden">Haddish</option>
     </select>
 </template>
 

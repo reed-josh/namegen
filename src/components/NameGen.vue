@@ -18,15 +18,14 @@ import SelectSylType from './SelectSylType.vue'
 import BaseButton from './base/BaseButton.vue'
 
 const name = ref('')
-const sylType = ref('OLD_NORSE')
+const sylType = ref('oldnorse')
 
 /**
  *
  * @returns {void}
  */
-function generate () {
-  console.log(sylType.value)
-  name.value = generateName({ syllable_count: 2 }, sylType.value)
+async function generate () {
+  name.value = await generateName({ syllable_count: 2 }, sylType.value)
 }
 
 </script>

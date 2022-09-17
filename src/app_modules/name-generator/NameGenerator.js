@@ -1,25 +1,28 @@
 import Helpers from './Helpers.js'
 
-import oldnorse from './syllables/oldnorse.js'
-import english from './syllables/english.js'
-import thadden from './syllables/thadden.js'
-
-/** @member {object} syllablesMap */
-const syllablesMap = {
-  OLD_NORSE: oldnorse,
-  ENGLISH: english,
-  THADDEN: thadden
+/**
+ *
+ * @param {string} fileName
+ * @returns {object} returns syll list
+ */
+export async function getSylList (fileName) {
+  try {
+    const res = await import(`./syllables/${fileName}.js`)
+    return res.default
+  } catch (error) {
+    return null
+  }
 }
 
 /**
  * generates a fictional name from random syllables
  *
  * @param {object} options Configurations, like syllable_count
- * @param {string} syllType which syllable list to use
+ * @param {string} sylType which syllable list to use
  * @returns {string} This returns a string; a combination of syllables
  */
-export const generateName = function (options, syllType) {
-  const syllables = syllablesMap[syllType]
+export const generateName = async function (options, sylType) {
+  const syllables = await getSylList(sylType)
   let name = ''
   const multiSyll = options.syllable_count > 1
   if (multiSyll) {
