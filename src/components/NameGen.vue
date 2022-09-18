@@ -11,22 +11,25 @@
     </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script>
+import { defineComponent, ref } from 'vue'
 import { generateName } from '../app_modules/name-generator/NameGenerator'
 import SelectSylType from './SelectSylType.vue'
 import BaseButton from './base/BaseButton.vue'
 
-const name = ref('')
-const sylType = ref('Old_Norse')
+export default defineComponent({
+  components: { SelectSylType, BaseButton },
+  setup () {
+    const name = ref('')
+    const sylType = ref('Old_Norse')
 
-/**
- *
- * @returns {void}
- */
-async function generate () {
-  name.value = await generateName({ syllable_count: 2 }, sylType.value)
-}
+    const generate = async () => {
+      name.value = await generateName({ syllable_count: 2 }, sylType.value)
+    }
+
+    return { generate, name, sylType }
+  }
+})
 
 </script>
 

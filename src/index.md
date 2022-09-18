@@ -3,10 +3,14 @@ title: 'Name Generator'
 description: 'Generate names for novels, books, games and all your creative world building projects.'
 ---
 
-### {{ page.title }}
+## {{ page.title }}
+
+<br />
+
 ::: info Description
 {{ page.description }}
 :::
+
 <NameGen />
 
 <script setup>

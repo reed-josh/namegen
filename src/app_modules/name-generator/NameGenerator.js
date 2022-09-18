@@ -52,3 +52,12 @@ export const generateName = async function (options, sylType) {
   }
   return name
 }
+
+/**
+ * @param {object} options
+ * @param {string} nameList
+ * @returns {string} a name randomly selected from a list of names
+ */
+export function generateNameOfPredefinedNames (options, nameList) {
+  return 'Walter Mitty'
+}
