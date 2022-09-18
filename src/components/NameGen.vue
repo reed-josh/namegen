@@ -18,7 +18,7 @@ import SelectSylType from './SelectSylType.vue'
 import BaseButton from './base/BaseButton.vue'
 
 const name = ref('')
-const sylType = ref('oldnorse')
+const sylType = ref('Old_Norse')
 
 /**
  *

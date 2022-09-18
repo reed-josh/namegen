@@ -1,31 +1,36 @@
 <template>
+  <h1>Default Set | {{ modelValue }} |</h1>
     <select class="syl-select" :value="modelValue" @change="emitSelection">
-        <option value="oldnorse">Old Norse</option>
-        <option value="english">English</option>
-        <option value="thadden">Haddish</option>
+        <template v-for="option in sylOptions" :key="option">
+          <option :value="option">{{ displayOptionWithoutSpaces(option) }}</option>
+        </template>
     </select>
 </template>
 
-<script setup>
+<script>
 
-const emit = defineEmits(['update:modelValue'])
+import { defineComponent, ref } from 'vue'
+import { buildSylOptions } from '../app_modules/name-generator/NameGenerator.js'
 
-defineProps({
-  modelValue: String
+export default defineComponent({
+  emits: ['update:modelValue'],
+  props: { modelValue: { type: String, default: 'Old_Norse' } },
+  setup (props, { emit }) {
+    const sylOptions = ref(buildSylOptions())
+
+    const displayOptionWithoutSpaces = (opt) => opt.replaceAll('_', ' ')
+
+    const emitSelection = (e) => emit('update:modelValue', e.target.value)
+
+    return { sylOptions, displayOptionWithoutSpaces, emitSelection }
+  }
 })
 
-/**
- *
- * @param {object} e
- */
-function emitSelection (e) {
-  emit('update:modelValue', e.target.value)
-}
 </script>
 
 <style scoped>
 .syl-select {
     padding: 5px;
-    -webkit-appearance: auto;
+    appearance: auto;
 }
 </style>

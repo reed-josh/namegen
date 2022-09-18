@@ -9,11 +9,11 @@ defineProps({
 </script>
 
 <style scoped>
-button {
+/* button {
     padding: 5px;
     border-radius: 3px;
     border: 0px;
     color: white;
     background: lightseagreen
-}
+} */
 </style>

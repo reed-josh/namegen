@@ -20,8 +20,14 @@ export async function getSylList (fileName) {
  *
  * @returns {Array} array
  */
-export async function buildSylOptions () {
-  return []
+export function buildSylOptions () {
+  // I thought about using an import glob to get these, but have decided to
+  // just explicitly register them here. Note: case sensitive, should replace underscores with spaces when displayed in the UI.
+  return [
+    'Old_Norse',
+    'English',
+    'Haddish'
+  ]
 }
 
 /**

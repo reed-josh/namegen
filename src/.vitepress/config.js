@@ -1,4 +1,4 @@
 export default {
-    title: 'NameGen',
-    description: 'Just Playing around'
+    title: 'Name Generator',
+    description: 'Generate names for your novel or your role playing game.'
 }
