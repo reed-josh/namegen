@@ -4,9 +4,9 @@
             <SelectSylType v-model="state.sylType" @change="(title) => state.sylTitle = title" />
         </label>
         <br>
-        <p class="display-name-area">
+        <div class="display-name-area">
             {{ state.name }}
-        </p>
+        </div>
         <BaseButton :label="buttonText" @click="generate" />
     </div>
 </template>
@@ -40,6 +40,16 @@ export default defineComponent({
 <style scoped>
 .display-name-area {
     min-height: 100px;
+    max-width: 500px;
+    margin: 1em auto;
     padding: 10px;
+    font-size: 2em;
+    border-radius: 8px;
+    background-color: #383838;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 </style>
