@@ -17,18 +17,23 @@ import { generateName } from '../app_modules/name-generator/NameGenerator'
 import SelectSylType from './SelectSylType.vue'
 import BaseButton from './base/BaseButton.vue'
 
+/**
+ * @returns {object}
+ */
+function setup () {
+  const name = ref('')
+  const sylType = ref('Old_Norse')
+
+  const generate = async () => {
+    name.value = await generateName({ syllable_count: 2 }, sylType.value)
+  }
+
+  return { generate, name, sylType }
+}
+
 export default defineComponent({
   components: { SelectSylType, BaseButton },
-  setup () {
-    const name = ref('')
-    const sylType = ref('Old_Norse')
-
-    const generate = async () => {
-      name.value = await generateName({ syllable_count: 2 }, sylType.value)
-    }
-
-    return { generate, name, sylType }
-  }
+  setup
 })
 
 </script>
