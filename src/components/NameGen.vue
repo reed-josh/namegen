@@ -1,42 +1,38 @@
 <template>
     <div style="width: 100%; text-align: center; padding: 20px">
         <label> Select a syllable type:
-            <SelectSylType v-model="sylType" @change="(title) => sylTitle = title" />
+            <SelectSylType v-model="state.sylType" @change="(title) => state.sylTitle = title" />
         </label>
         <br>
         <p class="display-name-area">
-            {{ name }}
+            {{ state.name }}
         </p>
         <BaseButton :label="buttonText" @click="generate" />
     </div>
 </template>
 
 <script>
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, computed, reactive } from 'vue'
 import { generateName } from '../app_modules/name-generator/NameGenerator'
 import SelectSylType from './SelectSylType.vue'
 import BaseButton from './base/BaseButton.vue'
 
-/**
- * @returns {object}
- */
-function setup () {
-  const name = ref('')
-  const sylTitle = ref('')
-  const sylType = ref('Old_Norse')
-
-  const buttonText = computed(() => sylType.value ? `Generate A ${sylTitle.value} Name` : 'Generate')
-
-  const generate = async () => {
-    name.value = await generateName({ syllable_count: 2 }, sylType.value)
-  }
-
-  return { generate, name, sylType, sylTitle, buttonText }
-}
-
 export default defineComponent({
   components: { SelectSylType, BaseButton },
-  setup
+  setup () {
+    const state = reactive({
+      name: '',
+      sylType: 'Old_Norse',
+      sylTitle: ''
+    })
+    const buttonText = computed(() => state.sylType ? `Generate A ${state.sylTitle} Name` : 'Generate')
+
+    const generate = async () => {
+      state.name = await generateName({ syllable_count: 2 }, state.sylType)
+    }
+
+    return { generate, state, buttonText }
+  }
 })
 
 </script>
