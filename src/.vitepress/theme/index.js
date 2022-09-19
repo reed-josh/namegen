@@ -1,8 +1,8 @@
-import DefaultTheme from 'vitepress/theme'
+// import DefaultTheme from 'vitepress/theme'
 import Layout from './BaseLayout.vue'
 
 export default {
-    ...DefaultTheme,
+    // ...DefaultTheme,
     Layout,
     notFound: () => '404: This isn\'t the page you are looking for.',
     enhanceApp ({ app, router, siteData}) {

@@ -1,5 +1,6 @@
 <template>
     <div class="base-layout-container">
+        <h1>Name Generator</h1>
         <Content />
     </div>
 </template>

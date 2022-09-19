@@ -11,10 +11,14 @@ export default defineComponent({
 
 <style scoped>
 button {
-    padding: 5px;
+    padding: 8px;
     border-radius: 3px;
     border: 0px;
     color: white;
-    background: lightseagreen
+    background: lightseagreen;
+    cursor: pointer;
+}
+button:hover {
+  background: darkcyan;
 }
 </style>
